@@ -1,0 +1,11 @@
+@(user: User)
+
+@main("Reporting") {
+
+<p>
+    Username = @user.uid
+</p>
+<p><a href="@routes.Application.authenticate">Authenticate</a></p>
+<p><a href="@routes.Application.profile">Profile</a></p>
+<p><a href="@routes.Application.healthcheck">Healthcheck</a></p>
+}

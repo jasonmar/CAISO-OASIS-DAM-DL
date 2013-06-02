@@ -1,0 +1,11 @@
+@(myForm: Form[User])
+
+@main("User Profile") {
+
+@helper.form(action = routes.Application.authenticate, 'id -> "myForm") {
+@helper.inputText(myForm("uid"))
+@helper.inputText(myForm("name"))
+<input type="submit" name="submit" value="submit">
+}
+
+}

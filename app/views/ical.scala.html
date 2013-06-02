@@ -1,0 +1,13 @@
+@(user: User, event: CalEvent)
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+DTSTART:@event.dtstart
+DTEND:@event.dtend
+SUMMARY:@event.summary
+LOCATION:@event.location
+DESCRIPTION:@event.description
+PRIORITY:3
+ORGANIZER:"@event.organizerName"<@event.organizerEmail>
+END:VEVENT
+END:VCALENDAR

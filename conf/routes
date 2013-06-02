@@ -11,6 +11,10 @@ GET     /unavailable_up.html        controllers.Application.healthcheck
 GET     /authenticate               controllers.Application.authenticate
 GET     /schedule                   controllers.Application.schedule
 GET     /report                     controllers.Application.report
+
+GET     /client                     controllers.Application.client
+POST    /cert                       controllers.Application.cert
+
 POST    /submit                     controllers.Application.submit
 
 GET     /icalform                   controllers.Application.icalform

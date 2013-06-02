@@ -1,7 +1,7 @@
 package controllers
 
 import play.api.mvc._
-import models.{CalEvent, User}
+import models.{ClientCert, CalEvent, User}
 
 object Application extends Controller {
 
@@ -45,7 +45,33 @@ object Application extends Controller {
       case Some(x) =>
         Redirect(routes.Application.profile).withSession(
         "authenticated" -> "yes",
-        "userName" -> "JMar")
+        "userName" -> x)
+      case None => Status(403)("403 Unauthorized")
+    }
+  }
+
+  def client = Action { implicit request =>
+    request.headers.get("X-Forwarded-User") match {
+      case Some(x) =>
+        val user = new User (uid = x)
+        val clientCert = new ClientCert
+        Ok(views.html.client(user,clientCert.clientCertForm))
+      case None => Status(403)("403 Unauthorized")
+    }
+  }
+
+  def cert = Action { implicit request =>
+    request.headers.get("X-Forwarded-User") match {
+      case Some(x) =>
+        val user = new User (uid = x)
+        val clientCert = new ClientCert
+        val clientCertForm = clientCert.clientCertForm
+        clientCertForm.bindFromRequest.fold(
+          formWithErrors => // binding failure, you retrieve the form containing errors,
+            BadRequest(views.html.error_cert(user,formWithErrors)),
+          value => // binding success, you get the actual value
+            Ok(views.html.viewpost_cert(user,value))
+        )
       case None => Status(403)("403 Unauthorized")
     }
   }

@@ -1,0 +1,11 @@
+@(user: User, cert: ClientCert)
+
+@main("POST Inspection") {
+
+    <p>Username = @user.uid</p>
+    <p>cert = @cert</p>
+    <p>subject = @cert.getSubject</p>
+    <p>serial = @cert.getSerial</p>
+    <p>issuer = @cert.getIssuer</p>
+
+}

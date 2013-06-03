@@ -1,0 +1,15 @@
+@(user: User, nodePrice : NodePrice, myForm: Form[NodePrice])
+
+@main("Check Node Day-Ahead Price") {
+
+    <p>Username = @user.uid</p>
+    <p><a href="@routes.Application.index">Home</a></p>
+
+    @helper.form(action = routes.Pricing.pricing, 'id -> "myForm") {
+    @helper.inputText(field = myForm("iso"), args = 'size -> 64, 'placeholder -> "CAISO")
+    @helper.inputText(field = myForm("node"), args = 'size -> 64, 'placeholder -> "SDG1_1_PDRP01-APND")
+    @helper.inputText(field = myForm("date"), args = 'size -> 64, 'placeholder -> "yyyy-MM-dd")
+    <input type="submit" name="submit" value="submit">
+    }
+
+}

@@ -20,6 +20,10 @@ POST    /submit                     controllers.Application.submit
 GET     /event                      controllers.Application.event
 POST    /ical.ics                   controllers.Application.ical
 
+GET     /price                      controllers.Pricing.price
+POST    /pricing                    controllers.Pricing.pricing
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

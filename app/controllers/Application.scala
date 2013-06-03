@@ -109,7 +109,7 @@ object Application extends Controller {
             val eventForm = event.eventForm
             eventForm.bindFromRequest.fold(
               formWithErrors => // binding failure, you retrieve the form containing errors,
-                BadRequest(views.html.ical_error(user,formWithErrors)),
+                BadRequest(views.html.error_ical(user,formWithErrors)),
               value => // binding success, you get the actual value
                 Ok(views.html.ical(user,value)).as("application/calendar")
             )

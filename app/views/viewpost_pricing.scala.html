@@ -1,0 +1,13 @@
+@(user: User, nodePrice: NodePrice, content: String)
+
+@main("POST Inspection") {
+
+    <p>Username = @user.uid</p>
+    <p>nodePrice = @nodePrice</p>
+    <p>iso = @nodePrice.iso</p>
+    <p>node = @nodePrice.node</p>
+    <p>date = @nodePrice.date.toString("yyyyMMdd")</p>
+    <p>content = @content</p>
+
+
+}

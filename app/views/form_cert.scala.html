@@ -2,6 +2,9 @@
 
 @main("Authorize Client Certificate") {
 
+    <p>Username = @user.uid</p>
+    <p><a href="@routes.Application.index">Home</a></p>
+
     @helper.form(action = routes.Application.cert, 'id -> "myForm") {
     @helper.inputText(field = myForm("name"), args = 'size -> 64, 'placeholder -> "name of client")
     @helper.inputText(field = myForm("description"), args = 'size -> 64, 'placeholder -> "brief description")

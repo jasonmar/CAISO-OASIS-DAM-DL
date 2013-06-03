@@ -3,9 +3,7 @@
 @main("User Profile") {
 
     <p>Username = @user.uid</p>
-    <p><a href="@routes.Application.authenticate">Authenticate</a></p>
-    <p><a href="@routes.Application.profile">Profile</a></p>
-    <p><a href="@routes.Application.healthcheck">Healthcheck</a></p>
+    <p><a href="@routes.Application.index">Home</a></p>
 
     @helper.form(action = routes.Application.submit, 'id -> "myForm") {
         @helper.inputText(myForm("uid"))

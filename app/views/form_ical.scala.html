@@ -1,0 +1,21 @@
+@(user: User, myForm: Form[CalEvent])
+
+@main("User Profile") {
+
+    <p>Username = @user.uid</p>
+    <p><a href="@routes.Application.index">Home</a></p>
+
+    @helper.form(action = routes.Application.ical, 'id -> "myForm") {
+        @helper.inputText(myForm("start"), args = 'size -> 64)
+        @helper.inputText(myForm("startHour"))
+        @helper.inputText(myForm("startMin"))
+        @helper.inputText(myForm("duration"), args = 'size -> 64)
+        @helper.inputText(field = myForm("summary"), args = 'size -> 64)
+        @helper.inputText(field = myForm("location"), args = 'size -> 64)
+        @helper.inputText(field = myForm("description"), args = 'size -> 64)
+        @helper.inputText(field = myForm("organizerName"), args = 'size -> 64, 'placeholder -> user.uid )
+        @helper.inputText(field = myForm("organizerEmail"), args = 'size -> 64, 'placeholder -> user.uid )
+        <input type="submit" name="submit" value="submit">
+    }
+
+}

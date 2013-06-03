@@ -17,7 +17,7 @@ POST    /cert                       controllers.Application.cert
 
 POST    /submit                     controllers.Application.submit
 
-GET     /icalform                   controllers.Application.icalform
+GET     /event                      controllers.Application.event
 POST    /ical.ics                   controllers.Application.ical
 
 

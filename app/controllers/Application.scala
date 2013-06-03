@@ -55,7 +55,7 @@ object Application extends Controller {
       case Some(x) =>
         val user = new User (uid = x)
         val clientCert = new ClientCert
-        Ok(views.html.client(user,clientCert.clientCertForm))
+        Ok(views.html.form_cert(user,clientCert.clientCertForm))
       case None => Status(403)("403 Unauthorized")
     }
   }
@@ -85,13 +85,13 @@ object Application extends Controller {
     }
   }
 
-  def icalform = Action { implicit request =>
+  def event = Action { implicit request =>
     request.headers.get("X-Forwarded-User") match {
       case Some(x) =>
         val user = new User (uid = x)
         val event = new CalEvent
         // uid obtained via SSO, send 200
-        Ok(views.html.icalform(user,event.eventForm))
+        Ok(views.html.form_ical(user,event.eventForm))
       case None => Status(403)("403 Unauthorized")
     }
   }

@@ -21,7 +21,7 @@ class Requester {
 
     val d0 = date.toString("yyyyMMdd")
     val d1 = d0
-    val url : URL = new URL("http://oasis.caiso.com/mrtu-oasis/SingleZip?resultformat=6&queryname=PRC_LMP&startdate=" + d0 + "&enddate=" + d1 + "&market_run_id=DAM&node=" + node)
+    val url : URL = new URL("http://oasis.caiso.com/mrtu-oasis/SingleZip?queryname=PRC_LMP&startdate=" + d0 + "&enddate=" + d1 + "&market_run_id=DAM&node=" + node)
     val ofile : File = new File("R:\\" + node + d0 + ".zip")
 
     val downloader = new Downloader
